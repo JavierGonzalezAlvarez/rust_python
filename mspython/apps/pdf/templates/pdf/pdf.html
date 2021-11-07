@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">    
+  <meta name="description" content="pdf python/rust">
+  <meta name="author" content="Javier González">
+</head>
+
+<body>
+    <h2>Cliente</h2>    
+    <form action="{% url 'pdf:pdf_view' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        <label for="name">Name: </label>
+        <input id="name" type="text" name="name" maxlength="15" required>
+        <br>
+        <label for="surname">Surname: </label>
+        <input id="surname" type="text" name="surname" maxlength="25" required>
+        <br>
+        <label for="img">Img: </label>
+        <input id="img" type="file" name="img" accept=".jpg, .png">
+        <br>
+        <label for="fecha_alta">Fecha alta: </label>
+        <input id="fecha_alta" type="date" name="fecha_alta" value= Date()>
+        <br>
+        <label for="pdf">Pdf: </label>
+        <input id="pdf" type="text" name="pdf" maxlength="100" disabled>
+        <br>
+    </div>
+    <div>
+        <div>
+            <button type="submit">Guardar</button>            
+        </div>
+    </div>
+    </form>
+
+    <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class Cliente(models.Model):    
     name = models.CharField(
         max_length=15,         
@@ -17,7 +15,7 @@ class Cliente(models.Model):
     img = models.FileField(
         upload_to='./img',                     
         blank=True,
-        verbose_name="img"
+        verbose_name="img",        
     )  
     fecha_alta = models.DateField(blank=True, null=True, verbose_name="Fecha alta")  
     pdf = models.FileField(

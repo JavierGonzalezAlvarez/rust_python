@@ -30,3 +30,7 @@ javier
 
 ## crear modelo
 en pdf app
+
+## endpoints
+http://localhost:8000/admin/
+http://localhost:8000/cliente/pdf/
