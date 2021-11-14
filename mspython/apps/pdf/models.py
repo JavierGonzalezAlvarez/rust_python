@@ -1,4 +1,5 @@
 from django.db import models
+from .validators import validar_extension
 
 class Cliente(models.Model):    
     name = models.CharField(
@@ -13,9 +14,10 @@ class Cliente(models.Model):
         verbose_name="Nombre"
     )    
     img = models.FileField(
-        upload_to='./img',                     
+        upload_to='./img',                  
         blank=True,
-        verbose_name="img",        
+        verbose_name="img",
+        validators=[validar_extension]     
     )  
     fecha_alta = models.DateField(blank=True, null=True, verbose_name="Fecha alta")  
     pdf = models.FileField(

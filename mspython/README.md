@@ -15,6 +15,9 @@ django-admin startproject apps
 ## crear app
 apps/python3 manage.py startapp pdf
 
+## run the app
+$ python3 manage.py runserver
+
 ## crear BD
 $ psql -d postgres -U javier
 CREATE DATABASE rustpython WITH OWNER javier;

@@ -5,6 +5,7 @@ struct Cliente {
     id: i32,
     name: String,
     surname: String,   
+    //img: String,
 }
 
 fn main() {
@@ -17,8 +18,10 @@ fn main() {
             id: row.get(0),
             name: row.get(1),
             surname: row.get(2),
+            //img: row.get(3),
         };
         println!("Cliente => id: {}, nombre: {}, apellido: {}", client.id, client.name, client.surname);
+        //println!("Cliente => id: {}, nombre: {}, apellido: {}, img: {}", client.id, client.name, client.surname, client.img);
     }
     
 }
