@@ -5,6 +5,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponseRedirect
+import os
 
 class ClienteNew(SuccessMessageMixin, generic.CreateView):
     model=Cliente
@@ -16,7 +18,7 @@ class ClienteNew(SuccessMessageMixin, generic.CreateView):
     error_message="Cliente no Creado"
 
     #para funciones
-    '''
+    '''    
     def upload(request):
         if request.method == 'POST' and request.FILES['img']:
             file = request.FILES['img']
@@ -26,3 +28,14 @@ class ClienteNew(SuccessMessageMixin, generic.CreateView):
             return render(request, 'pdf/pdf.html', {'file_url': file_url})                            
         return render(request, 'pdf/pdf.html')
     '''
+
+    def form_valid(self, form):        
+        '''
+            run rust
+            use def form_valid() with CreateView to run the script
+        ''' 
+        self.object = form.save()        
+        failure = os.system('./script.sh')        
+        if failure:
+            print("error en script")
+        return HttpResponseRedirect(self.get_success_url())        

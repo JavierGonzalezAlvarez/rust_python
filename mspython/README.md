@@ -37,3 +37,11 @@ en pdf app
 ## endpoints
 http://localhost:8000/admin/
 http://localhost:8000/cliente/pdf/
+
+## script
+apps/script.sh
+
+## permisos del script
+------------------------
+apps/chmod +x ./script.sh
+

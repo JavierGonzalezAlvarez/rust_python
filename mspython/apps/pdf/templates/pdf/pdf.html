@@ -8,7 +8,7 @@
 
 <body>
     <h2>Cliente</h2>    
-    <form action="{% url 'pdf:pdf_view' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'pdf:pdf_view' %}" method="post" enctype="multipart/form-data">    
     {% csrf_token %}
     <div>
         <label for="name">Name: </label>
